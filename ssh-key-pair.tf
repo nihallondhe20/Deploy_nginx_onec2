@@ -4,10 +4,10 @@ resource "tls_private_key" "tf_key" {
 }
 
 resource "aws_key_pair" "tf_key" {
-  key_name   = var.key_name       # Create a "myKey" to AWS!!
+  key_name   = tf-test-key       
   public_key = tls_private_key.tf_key.public_key_openssh
 
-  provisioner "local-exec" { # Create a "myKey.pem" to your computer!!
-    command = "echo '${tls_private_key.tf_key.private_key_pem}' > ./myKey.pem"
+  provisioner "local-exec" { 
+    command = "echo '${tls_private_key.tf_key.private_key_pem}' > ./tf-test-key"
   }
 }

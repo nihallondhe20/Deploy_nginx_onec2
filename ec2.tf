@@ -14,7 +14,7 @@ resource "aws_security_group" "terraform-security-sg" {
 resource "aws_instance" "web" {
   ami           = var.ami
   instance_type = "t2.micro"
-  key_name = aws_key_pair.tf_key.key_name
+  key_name = tf-test-key
 #  vpc_security_group_ids = [aws_security_group.terraform-security-sg.id]
   vpc_security_group_ids = ["sg-0f5ef8c06a975637c"]
   tags = {
@@ -24,7 +24,7 @@ resource "aws_instance" "web" {
     type     = "ssh"
     user     = "ubuntu"
    # password = var.root_password
-    private_key = file("/home/ubuntu/ec2/${aws_key_pair.tf_key.key_name}.pem")
+    private_key = file("/tf-test-key.pem")
     host     = self.public_ip
   }
 

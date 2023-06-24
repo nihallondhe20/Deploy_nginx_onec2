@@ -1,6 +1,6 @@
-variable "key_name" {
-  default = "tf-test-key"
-}
+# variable "key_name" {
+#   default = "tf-test-key"
+# }
 
 variable "region" {
    default = "ap-south-1"
