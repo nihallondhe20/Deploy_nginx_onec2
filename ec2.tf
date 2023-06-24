@@ -14,7 +14,7 @@ resource "aws_security_group" "terraform-security-sg" {
 resource "aws_instance" "web" {
   ami           = var.ami
   instance_type = "t2.micro"
-  key_name = tf-test-key
+  key_name = aws_key_pair.tf_key.key_name
 #  vpc_security_group_ids = [aws_security_group.terraform-security-sg.id]
   vpc_security_group_ids = ["sg-0f5ef8c06a975637c"]
   tags = {

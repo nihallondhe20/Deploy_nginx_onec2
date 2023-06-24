@@ -4,7 +4,7 @@ resource "tls_private_key" "tf_key" {
 }
 
 resource "aws_key_pair" "tf_key" {
-  key_name   = tf-test-key       
+  key_name   = "tf-test-key "      
   public_key = tls_private_key.tf_key.public_key_openssh
 
   provisioner "local-exec" { 
