@@ -31,7 +31,7 @@ resource "aws_instance" "web" {
   provisioner "remote-exec" {
     inline = [
       "sudo apt update ",
-       "sudo apt install nginx",
+       "sudo apt install nginx -y",
        "sudo systemctl enable nginx",
        "sudo systemctl start nginx"
     ]
