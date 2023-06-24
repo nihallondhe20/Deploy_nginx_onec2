@@ -24,7 +24,7 @@ resource "aws_instance" "web" {
     type     = "ssh"
     user     = "ubuntu"
    # password = var.root_password
-    private_key = file("/tf-test-key.pem")
+    private_key = file("tf-test-key.pem")
     host     = self.public_ip
   }
 
